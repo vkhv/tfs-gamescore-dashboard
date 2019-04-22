@@ -23,12 +23,13 @@ export class PlayersController {
 	}
 
     }
+	
     @Get() 
     getAllPlayers() {
         return readFileSync('/tmp/storage.js').toString()
     }
 
-	@Delete()
+    @Delete()
     deleteAll() {
         writeFile('/tmp/storage.js', '""', "utf8", (err) => {
             console.log(err)
