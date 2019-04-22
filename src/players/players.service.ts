@@ -10,12 +10,8 @@ interface PlayerRepository {
 export class PlayersService implements PlayerRepository {
     savePlayer(player: Player): void {
 	const storage = JSON.parse(fs.readFileSync('/tmp/storage.js').toString());
-
-	console.log(storage, 's');
          fs.writeFile('/tmp/storage.js', JSON.stringify([...storage, {...player}]), "utf8", (err) => {
              console.log(err)
          })
-
-
     }
 }
